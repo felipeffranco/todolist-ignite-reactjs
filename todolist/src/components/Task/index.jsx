@@ -1,27 +1,18 @@
-// import { useState } from 'react';
-// import { FiTrash2 } from 'react-icons/fi';
+import { FiTrash2 } from 'react-icons/fi';
+import styles from './task.module.css'
 
-import styles from '../Task/task.module.css'
-
-export function Task() {
-    // const [isChecked, setIsChecked] = useState(false);
-
-    // const handleOnChange = () => {
-    //   setIsChecked(!isChecked);
-    // };
-
+export function Task({task}){
     return(
-        <section>
-            <header>
-                <div>
-                    <p>Tarefas criadas</p>
-                    <span>18</span>
-                </div>
-                <div>
-                    <p>Concluídas</p>
-                    <span>2/18</span>
-                </div>
-            </header>
-        </section>
+        <div className={styles.task}>
+            <button className={styles.checkContainer}>
+                <div />
+            </button>
+            <p>
+                {task.title}
+            </p>
+            <button className={styles.deleteButton}>
+                <FiTrash2 size={20} />
+            </button>
+        </div>
     )
 }
