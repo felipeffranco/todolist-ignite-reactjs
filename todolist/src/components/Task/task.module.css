@@ -16,6 +16,11 @@
     margin-right: auto;
 }
 
+p.textCompleted {
+    color: var(--gray-300);
+    text-decoration: line-through;
+}
+
 .checkContainer {
     min-width: 1.125rem;
     height: 1.125rem;
@@ -28,6 +33,12 @@
     height: 100%;
     border: 2px solid var(--blue);
     border-radius: 50%;
+}
+
+.checkContainer svg {
+    width: 20px;
+    height: 20px;
+    color: var(--purple)
 }
 
 .deleteButton {

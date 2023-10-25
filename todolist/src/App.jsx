@@ -20,10 +20,43 @@ function App() {
     }
   ]);
 
+  function addTask(taskTitle){
+    setTasks([
+      ...tasks, 
+      {
+        id: uuid(),
+        title: taskTitle,
+        isCompleted: false,
+      }
+    ])
+  }
+
+  function deleteTaskByID(taskId) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
+  }
+
+  function toggleTaskCompletedById(taskId) {
+    const newTasks = tasks.map((task) => {
+      if(task.id === taskId) {
+        return {
+          ...task, 
+          isCompleted: !task.isCompleted,
+        };
+      }
+      return task;
+    })
+    setTasks(newTasks);
+  }
+
   return (
     <>
-      <Header />
-      <Tasks tasks={tasks} />
+      <Header onAddTask={addTask} />
+      <Tasks 
+        tasks={tasks} 
+        onDelete={deleteTaskByID} 
+        onComplete={toggleTaskCompletedById}
+      />
     </>
   )
 }
